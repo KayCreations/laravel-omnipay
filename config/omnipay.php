@@ -14,26 +14,26 @@ return [
     'gateways' => [
 
         'paypal_rest' => [
-            'driver' => 'PayPal_Rest',
+            'driver'  => 'PayPal_Rest',
             'options' => [
                 'clientId' => 'yourusernamehere',
-                'secret' => 'yourpasswordhere',
-            ]
+                'secret'   => 'yourpasswordhere',
+            ],
         ],
 
         'paypal_express' => [
-            'driver' => 'PayPal_Express',
+            'driver'  => 'PayPal_Express',
             'options' => [
-                'username' => '',
-                'password' => '',
+                'username'  => '',
+                'password'  => '',
                 'signature' => '',
 
-                'solutionType' => '',
-                'landingPage' => '',
-                'headerImageUrl' => ''
-            ]
-        ]
+                'solutionType'   => '',
+                'landingPage'    => '',
+                'headerImageUrl' => '',
+            ],
+        ],
 
-    ]
+    ],
 
 ];

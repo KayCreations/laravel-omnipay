@@ -1,4 +1,6 @@
-<?php namespace Ignited\LaravelOmnipay;
+<?php
+
+namespace Ignited\LaravelOmnipay;
 
 class LaravelOmnipayServiceProvider extends BaseServiceProvider
 {
@@ -6,8 +8,7 @@ class LaravelOmnipayServiceProvider extends BaseServiceProvider
     {
         // Publish config
         $this->publishes([
-            __DIR__ . '/../../config/omnipay.php' => config_path('omnipay.php')
+            __DIR__.'/../../config/omnipay.php' => config_path('omnipay.php'),
         ], 'config');
     }
-
 }

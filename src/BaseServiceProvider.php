@@ -1,4 +1,6 @@
-<?php namespace Ignited\LaravelOmnipay;
+<?php
+
+namespace Ignited\LaravelOmnipay;
 
 use Illuminate\Support\ServiceProvider;
 use Omnipay\Common\GatewayFactory;
@@ -23,12 +25,12 @@ abstract class BaseServiceProvider extends ServiceProvider
     }
 
     /**
-     * Register the Omnipay manager
+     * Register the Omnipay manager.
      */
     public function registerManager()
     {
         $this->app->singleton('omnipay', function ($app) {
-            $factory = new GatewayFactory;
+            $factory = new GatewayFactory();
             $manager = new LaravelOmnipayManager($app, $factory);
 
             return $manager;
