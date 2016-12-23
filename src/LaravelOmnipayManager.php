@@ -1,9 +1,9 @@
-<?php namespace Ignited\LaravelOmnipay;
+<?php
 
-use Closure;
-use Omnipay\Common\GatewayFactory;
-use Omnipay\Common\Helper;
+namespace Ignited\LaravelOmnipay;
+
 use Omnipay\Common\CreditCard;
+use Omnipay\Common\Helper;
 
 class LaravelOmnipayManager
 {
@@ -15,14 +15,14 @@ class LaravelOmnipayManager
     protected $app;
 
     /**
-     * Omnipay Factory Instance
+     * Omnipay Factory Instance.
      *
      * @var \Omnipay\Common\GatewayFactory
      */
     protected $factory;
 
     /**
-     * The current gateway to use
+     * The current gateway to use.
      *
      * @var string
      */
@@ -38,7 +38,7 @@ class LaravelOmnipayManager
     /**
      * Create a new omnipay manager instance.
      *
-     * @param  \Illuminate\Foundation\Application $app
+     * @param \Illuminate\Foundation\Application $app
      * @param $factory
      */
     public function __construct($app, $factory)
@@ -48,11 +48,14 @@ class LaravelOmnipayManager
     }
 
     /**
-     * Get an instance of the specified gateway
+     * Get an instance of the specified gateway.
+     *
      * @param null $name
      * @param null $httpClient
      * @param null $httpRequest
+     *
      * @return \Omnipay\Common\AbstractGateway
+     *
      * @internal param of $index config array to use
      */
     public function gateway($name = null, $httpClient = null, $httpRequest = null)
@@ -68,8 +71,9 @@ class LaravelOmnipayManager
 
     /**
      * @param string $name
-     * @param null $httpClient
-     * @param null $httpRequest
+     * @param null   $httpClient
+     * @param null   $httpRequest
+     *
      * @return \Omnipay\Common\GatewayInterface
      */
     protected function resolve($name, $httpClient = null, $httpRequest = null)
@@ -77,17 +81,17 @@ class LaravelOmnipayManager
         $config = $this->getConfig($name);
 
         if (is_null($config)) {
-            throw new \UnexpectedValueException("Gateway [" . $name . "] is not defined.");
+            throw new \UnexpectedValueException('Gateway ['.$name.'] is not defined.');
         }
 
         $gateway = $this->factory->create($config['driver'], $httpClient, $httpRequest);
 
-        $class = trim(Helper::getGatewayClassName($config['driver']), "\\");
+        $class = trim(Helper::getGatewayClassName($config['driver']), '\\');
 
         $reflection = new \ReflectionClass($class);
 
         foreach ($config['options'] as $optionName => $value) {
-            $method = 'set' . ucfirst($optionName);
+            $method = 'set'.ucfirst($optionName);
 
             if ($reflection->hasMethod($method)) {
                 $gateway->{$method}($value);
@@ -99,6 +103,7 @@ class LaravelOmnipayManager
 
     /**
      * @param $cardInput
+     *
      * @return CreditCard
      */
     public function creditCard($cardInput)
@@ -116,6 +121,7 @@ class LaravelOmnipayManager
 
     /**
      * @param $name
+     *
      * @return mixed
      */
     protected function getConfig($name)
@@ -146,6 +152,7 @@ class LaravelOmnipayManager
     /**
      * @param $method
      * @param $parameters
+     *
      * @return \Omnipay\Common\AbstractGateway
      */
     public function __call($method, $parameters)
@@ -154,6 +161,6 @@ class LaravelOmnipayManager
             return call_user_func_array([$this->gateway(), $method], $parameters);
         }
 
-        throw new \BadMethodCallException("Method [" . $method . "] is not supported by the gateway [" . $this->gateway . "].");
+        throw new \BadMethodCallException('Method ['.$method.'] is not supported by the gateway ['.$this->gateway.'].');
     }
 }

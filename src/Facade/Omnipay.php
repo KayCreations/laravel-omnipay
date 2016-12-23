@@ -1,4 +1,6 @@
-<?php namespace Ignited\LaravelOmnipay\Facade;
+<?php
+
+namespace Ignited\LaravelOmnipay\Facade;
 
 use Illuminate\Support\Facades\Facade;
 
@@ -8,5 +10,4 @@ class Omnipay extends Facade
     {
         return 'omnipay';
     }
-
 }
