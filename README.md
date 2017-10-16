@@ -1,17 +1,21 @@
 Omnipay 2.5 for Laravel 5 & Lumen
 =================================
 
-[![Total Downloads](https://img.shields.io/packagist/dt/ignited/laravel-omnipay.svg)](https://packagist.org/packages/ignited/laravel-omnipay)
-[![Latest Version](http://img.shields.io/packagist/v/ignited/laravel-omnipay.svg)](https://github.com/ignited/laravel-omnipay/releases)
-[![Dependency Status](https://www.versioneye.com/php/ignited:laravel-omnipay/badge.svg)](https://www.versioneye.com/php/ignited:laravel-omnipay)
+[![Total Downloads](https://img.shields.io/packagist/dt/darthsoup/laravel-omnipay.svg)](https://packagist.org/packages/darthsoup/laravel-omnipay)
+[![Latest Version](http://img.shields.io/packagist/v/darthsoup/laravel-omnipay.svg)](https://github.com/darthsoup/laravel-omnipay/releases)
+[![Dependency Status](https://www.versioneye.com/php/darthsoup:laravel-omnipay/badge.svg)](https://www.versioneye.com/php/darthsoup:laravel-omnipay)
 
-Integrates the [Omnipay](https://github.com/adrianmacneil/omnipay) PHP library with Laravel 5 via a ServiceProvider to make Configuring multiple payment tunnels a breeze!
+Integrates the [Omnipay](https://github.com/thephpleague/omnipay) PHP library with Laravel 5 via a ServiceProvider to make Configuring multiple payment tunnels a breeze!
 
-### Now using Omnipay 2.5
+### Now using Omnipay 2.3/2.5
  
 Version `2.0` and onwards has been updated to use Omnipay 2.3.
 
 Version `2.2` and onwards is using Omnipay 2.5
+
+Version `2.3` and onwards supports Laravel 5.4
+
+Version `2.4` and onwards supports Laravel 5.5
 
 ### Composer Configuration
 
